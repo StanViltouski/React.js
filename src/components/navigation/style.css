@@ -1,0 +1,54 @@
+.nav {
+	float:left;
+	width: 100%;
+	background-color: #1f497a;
+}
+
+.menu_item {
+	float: left;
+	padding: 14px 0 17px 0;
+}
+
+.menu_item a:hover {text-decoration: underline;}
+
+.menu_item:first-child {margin-right: 7%;}
+
+.menu_item:nth-child(2) {margin-right: 4.6%;}
+
+.menu_item:nth-child(3) {margin-right: 5.4%;}
+
+.menu_item:nth-child(4) {margin-right: 4.3%;}
+
+.menu_item a {
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.bucket {
+	padding-top: 12px;
+	float:right;
+	cursor: pointer;
+}
+
+.bucket_img {
+	position: relative;
+	top:3px;
+	padding-right: 12px;
+}
+
+.bucket_title{
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 1025px) {
+	 
+	 .nav {display: none;}
+}
+
+

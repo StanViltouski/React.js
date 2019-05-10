@@ -1,10 +1,49 @@
-import React, {Fragment} from 'react'
+import React, {Component, Fragment} from 'react'
+import $ from 'jquery' 
+
+class Filters extends Component {
 
 
-const Filters = () => (
-<Fragment>
+	dropMenu() {
+
+		$('.select_link').click(function(){
+
+   		let dropBlock = $(this).parent().find('.drop');
+
+    	if( dropBlock.is(':hidden') ) {
+      		dropBlock.slideDown();
+
+    	$('.drop').find('li').click(function(){
+      	let selectResult = $(this).text();
+
+      	$(this).parent().parent().find('input').val(selectResult);
+
+      	$(this).parent().parent().find('.select_link').html(selectResult);
+
+      	dropBlock.slideUp();
+    	});
+
+    	} else {
+      		dropBlock.slideUp();
+      	}
+
+    $(window).click(function(){
+      dropBlock.slideUp();
+    })
+
+  return false;
+
+});
+
+	}
+
+
+
+	render() {
+		return (
+		<Fragment>
 	<div className="filtersProduct_select select">
-		<a href="#" className="select_link">Любого логотипа <img src="img/arrow.gif" alt="arrow"/></a>
+		<a href="#" className="select_link" onClick={this.dropMenu}>Любого логотипа <img src="img/arrow.gif" alt="arrow"/></a>
 			<ul className="drop">
 				<li className="drop_option opt show_all"><a href="#">Все</a></li>
 				<li id="compact" className="drop_option opt"><a href="#">Компакт-камера</a></li>
@@ -16,7 +55,7 @@ const Filters = () => (
 	</div>
 
 	<div className="filtersProduct_select select">
-		<a href="#" className="select_link select_link-right">Любого бренда<img src="img/arrow.gif" alt="arrow"/></a>
+		<a href="#" className="select_link select_link-right" onClick={this.dropMenu}>Любого бренда<img src="img/arrow.gif" alt="arrow"/></a>
 			<ul className="drop">
 				<li className="drop_option opt-1 show_all"><a href="#">Все</a></li>
 				<li id="canon" className="drop_option opt-1"><a href="#">Canon</a></li>
@@ -28,7 +67,6 @@ const Filters = () => (
 			</ul>
 	<input type="hidden" id="select" />
 	</div>
-
 
     <div className="filter_price">
 
@@ -46,6 +84,10 @@ const Filters = () => (
 
      </div>
 </Fragment>
-)
+		)
+
+	}
+}
+
 
 export {Filters}
